@@ -13,15 +13,3 @@ public sealed class UserLookup : ICompiledQuery<User, User?>
         return q => q.FirstOrDefault(x => x.Name == Name);
     }
 }
-
-public sealed class ShapeLookup : ICompiledQuery<ShapeBase, ShapeBase?>
-{
-    public string Color { get; set; } = null!;
-
-    public Expression<Func<IMartenQueryable<ShapeBase>, ShapeBase?>> QueryIs()
-    {
-        return q => q.FirstOrDefault(x => x.Color == Color);
-    }
-}
-
-
